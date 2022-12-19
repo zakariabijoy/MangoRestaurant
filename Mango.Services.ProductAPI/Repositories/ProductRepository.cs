@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Mango.Services.ProductAPI.DbContexts;
+using Mango.Services.ProductAPI.Models;
 using Mango.Services.ProductAPI.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,14 +16,41 @@ public class ProductRepository : IProductRepository
         _db = db;
         _mapper = mapper;
     }
-    public Task<ProductDto> CreateUpdateProduct(ProductDto productDto)
+
+    public async Task<ProductDto> CreateUpdateProduct(ProductDto productDto)
     {
-        throw new NotImplementedException();
+        var product = _mapper.Map<Product>(productDto);
+        if(product.ProductId > 0)
+        {
+            _db.Products.Update(product);
+        }
+        else
+        {
+            await _db.Products.AddAsync(product);
+        }
+
+        await _db.SaveChangesAsync();
+        return _mapper.Map<ProductDto>(product);
     }
 
-    public Task<bool> DeleteProduct(int productId)
+    public async Task<bool> DeleteProduct(int productId)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var product = await _db.Products.FirstOrDefaultAsync(x => x.ProductId == productId);
+            if (product is null)
+                return false;
+
+            _db.Products.Remove(product);
+            await _db.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception)
+        {
+
+            return false;
+        }
     }
 
     public async Task<ProductDto> GetProductById(int productId)

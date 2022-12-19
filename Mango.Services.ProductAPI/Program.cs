@@ -1,6 +1,7 @@
 using AutoMapper;
 using Mango.Services.ProductAPI;
 using Mango.Services.ProductAPI.DbContexts;
+using Mango.Services.ProductAPI.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,9 @@ IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
 builder.Services
     .AddSingleton(mapper)
     .AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+// register repository services 
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
