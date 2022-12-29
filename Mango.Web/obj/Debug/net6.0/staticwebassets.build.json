@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QU07CzKkPTv3CJz8R2VeViguLEQjxSuka6PZkqrMpws=",
+  "Hash": "eMpfM1CXno2Af/8hGRL3lT6XgpcmFKU6j/XSH6D4va0=",
   "Source": "Mango.Web",
   "BasePath": "_content/Mango.Web",
   "Mode": "Default",
@@ -83,6 +83,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Personal\\Projects\\DotNetMicroservices\\MangoRestaurant\\Mango.Web\\wwwroot\\images\\mango.png",
+      "SourceId": "Mango.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Personal\\Projects\\DotNetMicroservices\\MangoRestaurant\\Mango.Web\\wwwroot\\",
+      "BasePath": "_content/Mango.Web",
+      "RelativePath": "images/mango.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\mango.png"
+    },
+    {
+      "Identity": "D:\\Personal\\Projects\\DotNetMicroservices\\MangoRestaurant\\Mango.Web\\wwwroot\\images\\order.png",
+      "SourceId": "Mango.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Personal\\Projects\\DotNetMicroservices\\MangoRestaurant\\Mango.Web\\wwwroot\\",
+      "BasePath": "_content/Mango.Web",
+      "RelativePath": "images/order.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\order.png"
     },
     {
       "Identity": "D:\\Personal\\Projects\\DotNetMicroservices\\MangoRestaurant\\Mango.Web\\wwwroot\\js\\site.js",
