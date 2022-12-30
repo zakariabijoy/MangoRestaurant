@@ -1,8 +1,8 @@
 ﻿using Mango.Web.Models;
 using Mango.Web.Models.Dtos;
 using Mango.Web.Services.IServices;
+using Newtonsoft.Json;
 using System.Text;
-using System.Text.Json;
 
 namespace Mango.Web.Services
 {
@@ -26,7 +26,7 @@ namespace Mango.Web.Services
                 client.DefaultRequestHeaders.Clear();
                 if(apiRequest.Data is not null)
                 {
-                    message.Content = new StringContent(JsonSerializer.Serialize(apiRequest.Data),Encoding.UTF8, "application/json");
+                    message.Content = new StringContent(JsonConvert.SerializeObject(apiRequest.Data),Encoding.UTF8, "application/json");
                 }
 
                 HttpResponseMessage apiResponse = null;
@@ -49,7 +49,7 @@ namespace Mango.Web.Services
 
                 apiResponse = await client.SendAsync(message);
                 var apiContent = await apiResponse.Content.ReadAsStringAsync();
-                var apiResponseDto =  JsonSerializer.Deserialize<T>(apiContent);
+                var apiResponseDto = JsonConvert.DeserializeObject<T>(apiContent);
                 return apiResponseDto;
             }
             catch (Exception ex)
@@ -60,8 +60,8 @@ namespace Mango.Web.Services
                     ErrorMessages = new List<string> { ex.Message.ToString() },
                     IsSuccess = false
                 };
-                var res = JsonSerializer.Serialize(dto);
-                var apiResponseDto = JsonSerializer.Deserialize<T>(res);
+                var res = JsonConvert.SerializeObject(dto);
+                var apiResponseDto = JsonConvert.DeserializeObject<T>(res);
                 return apiResponseDto;
             }
         }

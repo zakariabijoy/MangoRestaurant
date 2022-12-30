@@ -1,7 +1,7 @@
 ﻿using Mango.Web.Models.Dtos;
 using Mango.Web.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace Mango.Web.Controllers
 {
@@ -19,7 +19,7 @@ namespace Mango.Web.Controllers
             var response = await _productService.GetAllProductsAsync<ResponseDto>();
             if (response != null && response.IsSuccess)
             {
-                products = JsonSerializer.Deserialize<List<ProductDto>>(Convert.ToString(response.Result));
+                products = JsonConvert.DeserializeObject<List<ProductDto>>(Convert.ToString(response.Result));
             }
 
             return View(products);
