@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Personal\\Projects\\DotNetMicroservices\\MangoRestaurant\\Mango.Web\\Mango.Web.csproj": {}
+    "D:\\Personal\\Projects\\DotNetMicroServices\\MangoRestaurant\\Mango.Web\\Mango.Web.csproj": {}
   },
   "projects": {
-    "D:\\Personal\\Projects\\DotNetMicroservices\\MangoRestaurant\\Mango.Web\\Mango.Web.csproj": {
+    "D:\\Personal\\Projects\\DotNetMicroServices\\MangoRestaurant\\Mango.Web\\Mango.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Personal\\Projects\\DotNetMicroservices\\MangoRestaurant\\Mango.Web\\Mango.Web.csproj",
+        "projectUniqueName": "D:\\Personal\\Projects\\DotNetMicroServices\\MangoRestaurant\\Mango.Web\\Mango.Web.csproj",
         "projectName": "Mango.Web",
-        "projectPath": "D:\\Personal\\Projects\\DotNetMicroservices\\MangoRestaurant\\Mango.Web\\Mango.Web.csproj",
-        "packagesPath": "C:\\Users\\ZM5701633\\.nuget\\packages\\",
-        "outputPath": "D:\\Personal\\Projects\\DotNetMicroservices\\MangoRestaurant\\Mango.Web\\obj\\",
+        "projectPath": "D:\\Personal\\Projects\\DotNetMicroServices\\MangoRestaurant\\Mango.Web\\Mango.Web.csproj",
+        "packagesPath": "C:\\Users\\zakar\\.nuget\\packages\\",
+        "outputPath": "D:\\Personal\\Projects\\DotNetMicroServices\\MangoRestaurant\\Mango.Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ZM5701633\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\zakar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

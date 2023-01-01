@@ -64,3 +64,8 @@ D:\Personal\Projects\DotNetMicroservices\MangoRestaurant\Mango.Services.ProductA
 D:\Personal\Projects\DotNetMicroservices\MangoRestaurant\Mango.Services.ProductAPI\obj\Debug\net6.0\Mango.Services.ProductAPI.pdb
 D:\Personal\Projects\DotNetMicroservices\MangoRestaurant\Mango.Services.ProductAPI\obj\Debug\net6.0\Mango.Services.ProductAPI.genruntimeconfig.cache
 D:\Personal\Projects\DotNetMicroservices\MangoRestaurant\Mango.Services.ProductAPI\obj\Debug\net6.0\ref\Mango.Services.ProductAPI.dll
+D:\Personal\Projects\DotNetMicroServices\MangoRestaurant\Mango.Services.ProductAPI\obj\Debug\net6.0\staticwebassets\msbuild.Mango.Services.ProductAPI.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Personal\Projects\DotNetMicroServices\MangoRestaurant\Mango.Services.ProductAPI\obj\Debug\net6.0\staticwebassets\msbuild.build.Mango.Services.ProductAPI.props
+D:\Personal\Projects\DotNetMicroServices\MangoRestaurant\Mango.Services.ProductAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Mango.Services.ProductAPI.props
+D:\Personal\Projects\DotNetMicroServices\MangoRestaurant\Mango.Services.ProductAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Mango.Services.ProductAPI.props
+D:\Personal\Projects\DotNetMicroServices\MangoRestaurant\Mango.Services.ProductAPI\obj\Debug\net6.0\staticwebassets.pack.json
