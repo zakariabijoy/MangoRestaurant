@@ -31,3 +31,12 @@ D:\Personal\Projects\DotNetMicroServices\MangoRestaurant\Mango.Web\obj\Debug\net
 D:\Personal\Projects\DotNetMicroServices\MangoRestaurant\Mango.Web\obj\Debug\net6.0\Mango.Web.pdb
 D:\Personal\Projects\DotNetMicroServices\MangoRestaurant\Mango.Web\obj\Debug\net6.0\Mango.Web.genruntimeconfig.cache
 D:\Personal\Projects\DotNetMicroServices\MangoRestaurant\Mango.Web\obj\Debug\net6.0\ref\Mango.Web.dll
+D:\Personal\Projects\DotNetMicroServices\MangoRestaurant\Mango.Web\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+D:\Personal\Projects\DotNetMicroServices\MangoRestaurant\Mango.Web\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Personal\Projects\DotNetMicroServices\MangoRestaurant\Mango.Web\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Personal\Projects\DotNetMicroServices\MangoRestaurant\Mango.Web\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\Personal\Projects\DotNetMicroServices\MangoRestaurant\Mango.Web\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\Personal\Projects\DotNetMicroServices\MangoRestaurant\Mango.Web\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Personal\Projects\DotNetMicroServices\MangoRestaurant\Mango.Web\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\Personal\Projects\DotNetMicroServices\MangoRestaurant\Mango.Web\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Personal\Projects\DotNetMicroServices\MangoRestaurant\Mango.Web\bin\Debug\net6.0\System.Security.Permissions.dll
