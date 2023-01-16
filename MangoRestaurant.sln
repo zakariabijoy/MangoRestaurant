@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mango.Services.ProductAPI", "Mango.Services.ProductAPI\Mango.Services.ProductAPI.csproj", "{B5F71324-233E-4FDF-9658-6F75F0CDC599}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mango.Services.IdentityServer", "Mango.Services.IdentityServer\Mango.Services.IdentityServer.csproj", "{35312153-A07F-43E3-B4FA-C428FD25B57D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mango.Services.IdentityServer", "Mango.Services.IdentityServer\Mango.Services.IdentityServer.csproj", "{35312153-A07F-43E3-B4FA-C428FD25B57D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
