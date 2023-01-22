@@ -47,6 +47,8 @@ public class ProfileService : IProfileService
                 }
             }
         }
+
+        context.IssuedClaims= claims;
     }
 
     public async Task IsActiveAsync(IsActiveContext context)
