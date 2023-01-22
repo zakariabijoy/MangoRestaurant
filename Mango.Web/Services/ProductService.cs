@@ -12,55 +12,55 @@ public class ProductService : BaseServie, IProductService
     {
         _httpClient = httpClient;
     }
-    public async Task<T> CreateProductAsync<T>(ProductDto productDto)
+    public async Task<T> CreateProductAsync<T>(ProductDto productDto, string token)
     {
         return await SendAsync<T>(new APIRequest
         {
             ApiType = SD.APIType.POST,
             Data = productDto,
             Url = SD.ProductAPIBase + "/api/products",
-            AccessToken = ""
+            AccessToken = token
         });
     }
 
-    public async Task<T> DeleteProductAsync<T>(int id)
+    public async Task<T> DeleteProductAsync<T>(int id, string token)
     {
         return await SendAsync<T>(new APIRequest
         {
             ApiType = SD.APIType.DELETE,
             Url = SD.ProductAPIBase + "/api/products/" + id,
-            AccessToken = ""
+            AccessToken = token
         });
     }
 
-    public async Task<T> GetAllProductsAsync<T>()
+    public async Task<T> GetAllProductsAsync<T>(string token)
     {
         return await SendAsync<T>(new APIRequest
         {
             ApiType = SD.APIType.GET,
             Url = SD.ProductAPIBase + "/api/products",
-            AccessToken = ""
+            AccessToken = token
         });
     }
 
-    public async Task<T> GetProductByIdAsync<T>(int id)
+    public async Task<T> GetProductByIdAsync<T>(int id, string token)
     {
         return await SendAsync<T>(new APIRequest
         {
             ApiType = SD.APIType.GET,
             Url = SD.ProductAPIBase + "/api/products/" + id,
-            AccessToken = ""
+            AccessToken = token
         });
     }
 
-    public async Task<T> UpdateProductAsync<T>(ProductDto productDto)
+    public async Task<T> UpdateProductAsync<T>(ProductDto productDto, string token)
     {
         return await SendAsync<T>(new APIRequest
         {
             ApiType = SD.APIType.PUT,
             Data = productDto,
             Url = SD.ProductAPIBase + "/api/products",
-            AccessToken = ""
+            AccessToken = token
         });
     }
 }
