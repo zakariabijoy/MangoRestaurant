@@ -35,7 +35,7 @@ public class CartRepository : ICartRepository
         }
 
        //check if header is  null
-       var cartHeaderFromDb = await _db.CartHeaders.FirstOrDefaultAsync(u => u.UserId == cart.CartHeader.UserId);
+       var cartHeaderFromDb = await _db.CartHeaders.AsNoTracking().FirstOrDefaultAsync(u => u.UserId == cart.CartHeader.UserId);
 
         if (cartHeaderFromDb == null)
         {
@@ -47,11 +47,31 @@ public class CartRepository : ICartRepository
             _db.CartDetails.Add(cart.CartDetails.FirstOrDefault()!);
             await _db.SaveChangesAsync();
         }
+        else
+        {
+            //if header is not null
+            //check if details has same product
+            var cartDetailsFromDb = await _db.CartDetails.AsNoTracking().FirstOrDefaultAsync(u => u.ProductId == cart.CartDetails.FirstOrDefault()!.ProductId && u.CartHeaderId == cartHeaderFromDb.CartHeaderId);
 
-        //if header is not null
-        //check if details has same product 
-        //if it has then update the count 
-        //else create details
+            if (cartDetailsFromDb == null)
+            {
+                //create details
+                cart.CartDetails.FirstOrDefault()!.CartHeaderId = cartHeaderFromDb.CartHeaderId;
+                cart.CartDetails.FirstOrDefault()!.Product = null;
+                _db.CartDetails.Add(cart.CartDetails.FirstOrDefault()!);
+                await _db.SaveChangesAsync();
+            }
+            else
+            {
+                //update the count / cart details
+                cart.CartDetails.FirstOrDefault()!.Product = null;
+                cart.CartDetails.FirstOrDefault()!.Count += cartDetailsFromDb.Count;
+                _db.CartDetails.Update(cart.CartDetails.FirstOrDefault()!);
+                await _db.SaveChangesAsync();
+            }
+        }
+
+        return _mapper.Map<CartDto>(cart);
     }
 
     public async Task<CartDto> GetCartByUserId(string userId)
