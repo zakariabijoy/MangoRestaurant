@@ -1,6 +1,7 @@
 using AutoMapper;
 using Mango.Services.ShoppingCartAPI;
 using Mango.Services.ShoppingCartAPI.DbContexts;
+using Mango.Services.ShoppingCartAPI.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -21,7 +22,7 @@ builder.Services
     .AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // register repository services 
-//builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ICartRepository, CartRepository>();
 
 builder.Services.AddControllers();
 
