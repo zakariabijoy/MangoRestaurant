@@ -4,7 +4,7 @@ using Mango.Web.Services.IServices;
 
 namespace Mango.Web.Services;
 
-public class ProductService : BaseServie, IProductService
+public class ProductService : BaseService, IProductService
 {
     private readonly IHttpClientFactory _httpClient;
 

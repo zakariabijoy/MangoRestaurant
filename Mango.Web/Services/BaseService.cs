@@ -7,12 +7,12 @@ using System.Text;
 
 namespace Mango.Web.Services
 {
-    public class BaseServie : IBaseService
+    public class BaseService : IBaseService
     {
         public ResponseDto ResponseDto { get; set; }
         private readonly IHttpClientFactory _httpClient;
      
-        public BaseServie(IHttpClientFactory httpClient)
+        public BaseService(IHttpClientFactory httpClient)
         {
             _httpClient = httpClient;
         }
