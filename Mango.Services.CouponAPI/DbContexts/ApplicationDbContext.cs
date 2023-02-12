@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Mango.Services.CouponAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Mango.Services.CouponAPI.DbContexts;
 
@@ -8,4 +9,6 @@ public class ApplicationDbContext : DbContext
 	{
 
 	}
+
+	public DbSet<Coupon> Coupons { get; set; }
 }
