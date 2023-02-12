@@ -25,7 +25,7 @@ public class CartService : BaseService, ICartService
         });
     }
 
-    public async Task<T> GetCartByUserIdAsync<T>(int userId, string token)
+    public async Task<T> GetCartByUserIdAsync<T>(string userId, string token)
     {
         return await SendAsync<T>(new APIRequest
         {
