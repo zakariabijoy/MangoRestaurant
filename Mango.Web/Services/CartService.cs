@@ -1,7 +1,6 @@
 ﻿using Mango.Web.Models;
 using Mango.Web.Models.Dtos;
 using Mango.Web.Services.IServices;
-using System.Net.Http;
 
 namespace Mango.Web.Services;
 
