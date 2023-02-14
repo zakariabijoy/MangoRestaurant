@@ -1,4 +1,5 @@
-﻿using Mango.Services.ShoppingCartAPI.Models.Dtos;
+﻿using Mango.Services.ShoppingCartAPI.Messages;
+using Mango.Services.ShoppingCartAPI.Models.Dtos;
 using Mango.Services.ShoppingCartAPI.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -115,12 +116,18 @@ namespace Mango.Services.ShoppingCartAPI.Controllers
         }
 
         [HttpPost("Checkout")]
-        public async Task<object> Checkout([FromBody] string userId)
+        public async Task<object> Checkout(CheckoutHeaderDto checkoutHeader)
         {
             try
             {
-                bool isSuccess = await _cartRepository.RemoveCoupon(userId);
-                _response.Result = isSuccess;
+                CartDto cartDto = await _cartRepository.GetCartByUserId(checkoutHeader.UserId);
+
+                if (cartDto is null)
+                    return BadRequest();
+
+                checkoutHeader.CartDetails = cartDto.CartDetails;
+                //logic to add message to process order
+
             }
             catch (Exception ex)
             {
