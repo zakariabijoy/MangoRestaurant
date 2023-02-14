@@ -73,7 +73,7 @@ public class CartController : Controller
         return View(await LoadCartDtoBasedOnLoggedInUser());
     }
 
-    [HttpPost("Checkout")]
+    [HttpPost]
     public async Task<IActionResult> Checkout(CartDto cartDto)
     {
         try
@@ -89,7 +89,6 @@ public class CartController : Controller
         }
     }
 
-    [HttpGet]
     public async Task<IActionResult> Confirmation()
     {
         return View();
