@@ -17,9 +17,15 @@ public class AzureServiceBusMessageBus : IMessageBus
         var jsonMessage = JsonConvert.SerializeObject(message);
 
         // create a message that we can send. UTF-8 encoding is used when providing a string.
-        ServiceBusMessage finalMessage = new ServiceBusMessage(Encoding.UTF8.GetBytes(jsonMessage));
+        ServiceBusMessage finalMessage = new ServiceBusMessage(Encoding.UTF8.GetBytes(jsonMessage))
+        {
+            CorrelationId = Guid.NewGuid().ToString(),
+        };
 
         // send the message
         await sender.SendMessageAsync(finalMessage);
+
+        // disposing service bus client
+        await client.DisposeAsync();
     }
 }
