@@ -16,12 +16,12 @@ public static class ApplicationBuilderExtension
         return app;
     }
 
-    private static void onStop()
+    private static void onStart()
     {
         ServiceBusConsumer.Start();
     }
 
-    private static void onStart()
+    private static void onStop()
     {
         ServiceBusConsumer.Stop();
     }
