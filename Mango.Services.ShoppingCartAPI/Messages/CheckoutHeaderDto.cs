@@ -5,6 +5,12 @@ namespace Mango.Services.ShoppingCartAPI.Messages;
 
 public class CheckoutHeaderDto : BaseMessage
 {
+    public CheckoutHeaderDto()
+    {
+        Id = new Random().Next(100000, 199999);
+        MessageCreated = DateTime.Now;
+    }
+
     public int CartHeaderId { get; set; }
     public string UserId { get; set; }
     public string CouponCode { get; set; }
