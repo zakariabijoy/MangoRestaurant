@@ -71,7 +71,7 @@ public class AzureServiceBusConsumer : IAzureServiceBusConsumer
 
         try
         {
-            await _messageBus.PublishMessage(updatePaymentResultMessage, _orderpaymentprocesstopic);
+            await _messageBus.PublishMessage(updatePaymentResultMessage, _orderUpdatePaymentResultTopic);
             await args.CompleteMessageAsync(args.Message);
         }
         catch (Exception ex)
