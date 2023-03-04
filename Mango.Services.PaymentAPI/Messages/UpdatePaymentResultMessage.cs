@@ -1,7 +1,15 @@
-﻿namespace Mango.Services.PaymentAPI.Messages;
+﻿using Mango.MessageBus;
 
-public class UpdatePaymentResultMessage
+namespace Mango.Services.PaymentAPI.Messages;
+
+public class UpdatePaymentResultMessage : BaseMessage
 {
+    public UpdatePaymentResultMessage()
+    {
+        Id = new Random().Next(100000, 199999);
+        MessageCreated = DateTime.Now;
+    }
+
     public int OrderId { get; set; }
-    public int Status { get; set; }
+    public bool Status { get; set; }
 }
