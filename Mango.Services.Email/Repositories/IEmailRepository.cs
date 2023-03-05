@@ -1,9 +1,8 @@
-﻿using Mango.Services.OrderAPI.Models;
+﻿using Mango.Services.Email.Messages;
 
 namespace Mango.Services.Email.Repositories;
 
 public interface IEmailRepository
 {
-    Task<bool> AddOrder(OrderHeader orderHeader);
-    Task UpdateOrderPaymentStatus(int orderHeaderId, bool paid);
+    Task SendAndLogEmail(UpdatePaymentResultMessage message);
 }

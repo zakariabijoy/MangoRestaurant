@@ -1,4 +1,4 @@
-﻿using Mango.Services.OrderAPI.Messaging;
+﻿using Mango.Services.Email.Messaging;
 
 namespace Mango.Services.Email.Extensions;
 

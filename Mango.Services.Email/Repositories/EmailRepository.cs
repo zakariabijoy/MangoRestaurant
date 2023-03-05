@@ -1,5 +1,6 @@
-﻿using Mango.Services.OrderAPI.DbContexts;
-using Mango.Services.OrderAPI.Models;
+﻿using Mango.Services.Email.DbContexts;
+using Mango.Services.Email.Messages;
+using Mango.Services.Email.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Mango.Services.Email.Repositories;
@@ -13,22 +14,18 @@ public class EmailRepository : IEmailRepository
         _dbContext = dbContext;
     }
 
-    public async Task<bool> AddOrder(OrderHeader orderHeader)
+    public async Task SendAndLogEmail(UpdatePaymentResultMessage message)
     {
-        await using var _db = new ApplicationDbContext(_dbContext);
-        _db.OrderHeaders.Add(orderHeader);
-        await _db.SaveChangesAsync();
-        return true;
-    }
-
-    public async Task UpdateOrderPaymentStatus(int orderHeaderId, bool paid)
-    {
-        await using var _db = new ApplicationDbContext(_dbContext);
-        var orderHeaderFromDb = await _db.OrderHeaders.FirstOrDefaultAsync(x => x.OrderHeaderId == orderHeaderId);
-        if (orderHeaderFromDb != null)
+        //implement an email sender or call some other class library
+        EmailLog emailLog = new EmailLog()
         {
-            orderHeaderFromDb.PaymentStatus= paid;
-            await _db.SaveChangesAsync();
-        }
+            Email = message.Email,
+            EmailSent = DateTime.Now,
+            Log = $"Order - {message.OrderId} has been created sucessfully.",
+        };
+
+        await using var _db = new ApplicationDbContext(_dbContext);
+        _db.EmailLogs.Add(emailLog);
+        await _db.SaveChangesAsync();   
     }
 }
