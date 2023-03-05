@@ -17,7 +17,7 @@ public class AzureServiceBusConsumer : IAzureServiceBusConsumer
 
     private readonly ServiceBusProcessor _orderUpdatePaymentStatusProcessor;
 
-    public AzureServiceBusConsumer(EmailRepository emailRepository, IConfiguration configuration, IMessageBus messageBus)
+    public AzureServiceBusConsumer(EmailRepository emailRepository, IConfiguration configuration)
     {
         _emailRepository = emailRepository;
         _configuration = configuration;
