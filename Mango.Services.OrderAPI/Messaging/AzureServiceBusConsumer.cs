@@ -35,7 +35,7 @@ public class AzureServiceBusConsumer : IAzureServiceBusConsumer
         _orderUpdatePaymentResultTopic = _configuration.GetValue<string>("OrderUpdatePaymentResultTopic");
 
         var client = new ServiceBusClient(_serviceBusConnectionString);
-        _checkOutProcessor = client.CreateProcessor(_CheckoutMessageTopic, _subscriptionCheckout);
+        _checkOutProcessor = client.CreateProcessor(_CheckoutMessageTopic);
         _orderUpdatePaymentStatusProcessor = client.CreateProcessor(_orderUpdatePaymentResultTopic, _subscriptionCheckout);
     }
 
