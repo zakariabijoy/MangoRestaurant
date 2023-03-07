@@ -1,6 +1,7 @@
 ﻿using Mango.MessageBus;
 using Mango.Services.OrderAPI.Messages;
 using Mango.Services.OrderAPI.Models;
+using Mango.Services.OrderAPI.RabbitMQSender;
 using Mango.Services.OrderAPI.Repositories;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
@@ -13,13 +14,14 @@ namespace Mango.Services.OrderAPI.Messaging;
 public class RabbitMQCheckoutConsumer : BackgroundService
 {
     private readonly OrderRepository _orderRepository;
+    private readonly IRabbitMQOrderMessageSender _rabbitMQOrderMessageSender;
     private IConnection _connection;
     private IModel _channel;
 
-    public RabbitMQCheckoutConsumer(OrderRepository orderRepository)
+    public RabbitMQCheckoutConsumer(OrderRepository orderRepository, IRabbitMQOrderMessageSender rabbitMQOrderMessageSender)
     {
         _orderRepository = orderRepository;
-
+        _rabbitMQOrderMessageSender = rabbitMQOrderMessageSender;
         var connectionFactory = new ConnectionFactory
         {
             HostName = "localhost",
@@ -100,8 +102,7 @@ public class RabbitMQCheckoutConsumer : BackgroundService
 
         try
         {
-            //await _messageBus.PublishMessage(paymentRequestMessage, _orderpaymentprocesstopic);
-            //await args.CompleteMessageAsync(args.Message);
+            _rabbitMQOrderMessageSender.SendMessage(paymentRequestMessage, "orderpaymentprocesstopic");
         }
         catch (Exception ex)
         {
