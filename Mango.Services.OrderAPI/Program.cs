@@ -28,7 +28,7 @@ builder.Services.AddSingleton(new OrderRepository(optionBuilder.Options));
 builder.Services.AddSingleton<IAzureServiceBusConsumer, AzureServiceBusConsumer>();
 builder.Services.AddSingleton<IMessageBus, AzureServiceBusMessageBus>();
 
-builder.Services.AddHostedService<RabbitMQConsumer>();
+builder.Services.AddHostedService<RabbitMQCheckoutConsumer>();
 
 builder.Services.AddControllers();
 
