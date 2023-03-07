@@ -11,6 +11,7 @@ public class RabbitMQPaymentMessageSender : IRabbitMQPaymentMessageSender
     private readonly string _password;
     private readonly string _username;
     private IConnection? _connection;
+    private const string ExchangeName = "PublishSubscribePaymentUpdate_Exchange"; 
 
     public RabbitMQPaymentMessageSender()
     {
@@ -24,12 +25,11 @@ public class RabbitMQPaymentMessageSender : IRabbitMQPaymentMessageSender
         if (ConnectionExists())
         {
             using var channel = _connection?.CreateModel();
-            channel?.QueueDeclare(queue: queueName, false, false, false, null);
-
+            channel?.ExchangeDeclare(ExchangeName, ExchangeType.Fanout, durable:false);
             var json = JsonConvert.SerializeObject(message);
             var body = Encoding.UTF8.GetBytes(json);
 
-            channel?.BasicPublish(exchange: "", routingKey: queueName, basicProperties: null, body: body);
+            channel?.BasicPublish(exchange: ExchangeName, "", basicProperties: null, body: body);
         }
           
     }
