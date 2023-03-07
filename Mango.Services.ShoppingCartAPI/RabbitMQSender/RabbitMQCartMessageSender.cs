@@ -10,7 +10,7 @@ public class RabbitMQCartMessageSender : IRabbitMQCartMessageSender
     private readonly string _hostname;
     private readonly string _password;
     private readonly string _username;
-    private IConnection _connection;
+    private IConnection? _connection;
 
     public RabbitMQCartMessageSender()
     {
@@ -23,13 +23,13 @@ public class RabbitMQCartMessageSender : IRabbitMQCartMessageSender
     {
         if (ConnectionExists())
         {
-            using var channel = _connection.CreateModel();
-            channel.QueueDeclare(queue: queueName, false, false, false, null);
+            using var channel = _connection?.CreateModel();
+            channel?.QueueDeclare(queue: queueName, false, false, false, null);
 
             var json = JsonConvert.SerializeObject(message);
             var body = Encoding.UTF8.GetBytes(json);
 
-            channel.BasicPublish(exchange: "", routingKey: queueName, basicProperties: null, body: body);
+            channel?.BasicPublish(exchange: "", routingKey: queueName, basicProperties: null, body: body);
         }
           
     }

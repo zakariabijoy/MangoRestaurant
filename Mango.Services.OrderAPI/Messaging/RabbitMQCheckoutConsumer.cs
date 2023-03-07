@@ -1,5 +1,4 @@
-﻿using Mango.MessageBus;
-using Mango.Services.OrderAPI.Messages;
+﻿using Mango.Services.OrderAPI.Messages;
 using Mango.Services.OrderAPI.Models;
 using Mango.Services.OrderAPI.RabbitMQSender;
 using Mango.Services.OrderAPI.Repositories;
@@ -7,7 +6,6 @@ using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
-using System.Threading.Channels;
 
 namespace Mango.Services.OrderAPI.Messaging;
 
@@ -45,10 +43,10 @@ public class RabbitMQCheckoutConsumer : BackgroundService
             CheckoutHeaderDto checkoutHeaderDto = JsonConvert.DeserializeObject<CheckoutHeaderDto>(content)!;
             HandleMessage(checkoutHeaderDto).GetAwaiter().GetResult();
 
-            _channel.BasicAck(ea.DeliveryTag, false);
+            _channel?.BasicAck(ea.DeliveryTag, false);
         };
 
-        _channel.BasicConsume("checkoutqueue", false, consumer);
+        _channel?.BasicConsume("checkoutqueue", false, consumer);
 
         return Task.CompletedTask;
     }
@@ -74,12 +72,12 @@ public class RabbitMQCheckoutConsumer : BackgroundService
             PickupDateTime = checkoutHeaderDto.PickupDateTime,
         };
 
-        foreach (var detailList in checkoutHeaderDto.CartDetails)
+        foreach (var detailList in checkoutHeaderDto.CartDetails!)
         {
             OrderDetails orderDetails = new()
             {
                 ProductId = detailList.ProductId,
-                ProductName = detailList.Product.Name,
+                ProductName = detailList.Product!.Name,
                 Price = detailList.Product.Price,
                 Count = detailList.Count
             };
@@ -107,7 +105,7 @@ public class RabbitMQCheckoutConsumer : BackgroundService
         catch (Exception ex)
         {
 
-            Console.WriteLine(ex.ToString());
+            Console.WriteLine(ex.Message.ToString());
         }
     }
 }
