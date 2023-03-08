@@ -20,7 +20,7 @@ public class RabbitMQPaymentMessageSender : IRabbitMQPaymentMessageSender
         _password = "guest";
 
     }
-    public void SendMessage(BaseMessage message, string queueName)
+    public void SendMessage(BaseMessage message)
     {
         if (ConnectionExists())
         {

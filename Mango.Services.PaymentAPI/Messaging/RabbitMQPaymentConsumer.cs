@@ -62,11 +62,9 @@ public class RabbitMQPaymentConsumer : BackgroundService
             Email = paymentRequestMessage.Email,
         };
 
-
         try
         {
-            //await _messageBus.PublishMessage(updatePaymentResultMessage, _orderUpdatePaymentResultTopic);
-            //await args.CompleteMessageAsync(args.Message);
+            _rabbitMQPaymentMessageSender.SendMessage(updatePaymentResultMessage);
         }
         catch (Exception ex)
         {
